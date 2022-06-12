@@ -1,0 +1,20 @@
+syntax = "proto3";
+package com.example.grpc;
+
+// Request payload
+message HelloRequest {
+  string firstName = 1;
+  string lastName = 2;
+  // See https://developers.google.com/protocol-buffers/docs/proto3
+  // for more information.
+}
+
+message HelloResponse {
+  string greeting = 1;
+}
+
+// Defining a Service, a Service can have multiple RPC operations
+service HelloService {
+  // Define a RPC operation
+  rpc sayHello(HelloRequest) returns (HelloResponse);
+}
